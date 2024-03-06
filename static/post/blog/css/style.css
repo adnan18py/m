@@ -1,0 +1,64 @@
+body{
+    background-color: rgb(255, 255, 255);
+}
+
+
+
+@font-face {
+
+    font-family: 'font-p';
+    src: url('../../../home/fonts/iran_sans.ttf');
+    }
+    
+    
+    
+
+.post{
+    color: #000;
+}
+
+
+
+.post-box{
+            
+    padding-inline: 20%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+.post{
+    background-color: #353535;
+    border: solid #000;
+    padding-bottom: 4%;
+    min-height: 200px;
+border-radius: 10px;
+
+}
+
+
+
+
+
+.post-image{
+border-radius: 10px;
+padding-bottom: 2pc;
+}
+
+@media (max-width: 1000px){
+    .post-box{
+        padding-inline: 10%;
+    }
+}
+
+
+
+.post-title{
+    color: #fff;
+    padding-inline: 1pc;
+    transition: .3s;
+    
+}
+
+
+.post-title:hover{
+    color: #009dff;
+}

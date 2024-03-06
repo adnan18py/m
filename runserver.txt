@@ -1,0 +1,5 @@
+cd env/scripts
+activate
+cd ../../
+cls
+python manage.py runserver

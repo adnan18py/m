@@ -1,0 +1,49 @@
+
+{% load static %}
+<head>
+		<!-- Loading third party fonts -->
+		<link href="{% static 'home/css/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="{% static 'home/css/css/style.css' %}">
+</head>
+
+	<div id="site-content">
+		<!-- start menu -->
+		<header class="site-header">
+			<div class="container">
+				<a href="{% url 'home_url' %}" id="branding">
+					<img src="{% static 'home/pics/logo.png'%}" alt="Site Title">
+					<small class="site-description">تا تاریخ, تاریخ هست, تاریخ هست</small>
+				</a> <!-- #branding -->
+				<nav class="main-navigation">
+					<button type="button" class="toggle-menu"><i class="fa fa-bars"></i></button>
+					<ul class="menu">
+						<li class="menu-item"><a href="{% url 'home_url' %}">صفحه نخست</a></li>
+						{% if request.user.is_authenticated %}
+						<li class="menu-item"><a href="{% url 'profile_url' %}">پروفایل</a></li>
+						{% else %}
+						<li class="menu-item"><a href="#"> ثبت نام</a></li>
+						<li class="menu-item"><a href="{% url 'login_url' %}">ورود</a></li>
+
+						{% endif %}
+						<li class="menu-item"><a href="/admin/">admin</a></li>
+						<li class="menu-item"><a href="#">تماس با ما</a></li>
+						<li class="menu-item"><a href="{% url 'blog_url' %}">وبلاگ</a></li>
+						<li class="menu-item"><a href="#">سبد خرید</a></li>
+					</ul> <!-- .menu -->
+					<!-- current-menu-item  -->
+				</nav> <!-- .main-navigation -->
+				<div class="mobile-menu"></div>
+				
+			</div>
+		</header>
+		<!-- end menu -->
+	
+
+		
+
+
+	
+<script src="{% static 'home/js/jquery-1.11.1.min.js'%}"></script>
+<script src="{% static 'home/js/plugins.js'%}"></script>
+<script src="{% static 'home/js/scripts.js'%}"></script>

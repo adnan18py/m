@@ -1,0 +1,79 @@
+{% extends '../home/home.html' %}
+{% load static %}
+
+{% block static %}
+<link href="{% static 'accounts/profile/css/style.css' %}" rel="stylesheet" type="text/css">
+
+{% endblock %}
+
+
+
+{% block content %}
+<h4>  خوش آمدید {{request.user}}</h4>
+
+<!-- <a class="logout-button" href="{% url 'logout_url' %}">خروج از حساب کاربری</a> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logout Button</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <button class="logout-btn" onclick="openConfirmBox()">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      
+       
+      
+      
+        خروج
+    </button>
+
+    <div id="confirmBox" class="confirm-box">
+        <div class="confirm-content">
+            <p class="text">آیا مطمئنید که می‌خواهید خارج شوید؟</p>
+            
+        
+            <a href="{% url 'logout_url' %}" class="b btn btn-danger mb-2">
+                <div class="">
+                    بله
+                </div>
+            </a>
+        <!-- <div class="box-btn"> -->
+            <div class="no-btn-box btn-box">
+            <button class="b btn btn-success mb-2" onclick="closeConfirmBox()">خیر</button>
+        </div>
+        <!-- </div> -->
+
+        </div>
+        <!--  -->
+    </div>
+    <br><br><br><br><br><br>
+    <script>
+        var color = 5;
+        var confirmBox = document.getElementById("confirmBox");
+
+        function openConfirmBox() {
+            confirmBox.style.display = "block";
+        }
+
+        function closeConfirmBox() {
+            confirmBox.style.display = "none";
+        }
+
+       
+    </script>
+
+
+
+</html>
+
+
+
+
+{% endblock %}

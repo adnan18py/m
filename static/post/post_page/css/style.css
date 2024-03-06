@@ -1,0 +1,40 @@
+.txt{
+    
+    padding-right: 15px;
+    
+    font-size: 1vh;
+}
+
+
+
+body{
+    background-color: #000;
+}
+
+
+.li-comment{
+    padding-bottom: 5%;
+     padding-left: 5%;
+}
+
+
+.comment{
+    /* padding: 10px;  */
+    padding-left: 50px;
+    padding-right: 10px;
+    width:100% ;
+    
+    background-color: rgb(201, 225, 246);
+    border-radius: 20px;
+} 
+
+
+.txt{
+    width: 42px;
+    padding-right: 50px;
+    padding-left: 50px;
+    height: 10px;
+    border-radius: 15px;
+    
+    font-size: 15pc;
+}

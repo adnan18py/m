@@ -1,0 +1,148 @@
+        /* استایل دکمه */
+        .logout-btn {
+            position: relative;
+            display: inline-block;
+            width: 120px;
+            height: 32px;
+            line-height: 32px;
+            border-radius: 2px;
+            font-size: 14px;
+            color: white;
+            background: #D83B01;
+            overflow: hidden;
+            opacity: 0.9;
+            margin: 0 auto;
+            box-shadow: 0 5px 15px -10px #000;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .logout-btn:hover {
+            background:rgb(180, 42, 0);
+            opacity: 1;
+            transform: translateY(-5px);
+        }
+        /* استایل متن دکمه */
+        .logout-btn span {
+            display: block;
+            position: absolute;
+            width: 25%;
+            height: 100%;
+            background: #F55801;
+            box-shadow: 0 2px 10px -2px #000;
+            transition: all 0.1s ease-in-out;
+            transition-delay: 0.2s;
+            z-index: 10;
+        }
+        .span:hover{
+            background:rgb(180, 42, 0);
+
+        }
+        .logout-btn span:nth-child(1) {
+            left: 0;
+            animation: bg 0.6s linear infinite;
+        }
+        .logout-btn span:nth-child(2) {
+            left: 25%;
+            animation: bg 0.6s linear infinite;
+            animation-delay: 0.2s;
+        }
+        .logout-btn span:nth-child(3) {
+            left: 50%;
+            animation: bg 0.6s linear infinite;
+            animation-delay: 0.3s;
+        }
+        .logout-btn span:nth-child(4) {
+            left: 75%;
+            animation: bg 0.6s linear infinite;
+            animation-delay: 0.4s;
+        }
+        /* انیمیشن برای پس‌زمینه دکمه */
+        @keyframes bg {
+            0% {
+                width: 25%;
+            }
+            50% {
+                width: 100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        /* استایل باکس تأیید */
+        .confirm-box {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 100px;
+        }
+        .confirm-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 300px;
+            text-align: center;
+            
+            
+        }
+ 
+
+
+
+        .text{
+            color: #000;
+        }
+        /* استایل دکمه‌های تأیید و انصراف */
+        .confirm-content button {
+            width: 100px;
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            color: #000;
+            cursor: pointer;
+            
+        }
+        
+        .b{
+            text-decoration: none;
+            display: -ms-flexbox;
+            color: #000;
+        }
+        .box-btn {
+            
+            
+            width: 100px;
+            height: 40px;
+        }
+        .no-btn {
+            
+            
+            width: 75px;
+           
+        }
+        .yes-btn{
+            margin: 15px;
+            
+        }
+        @keyframes bg {
+            0% {
+                width: 25%;
+            }
+            50% {
+                width: 100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        .confirm-content{
+            border-radius: 15px;
+            
+        }
