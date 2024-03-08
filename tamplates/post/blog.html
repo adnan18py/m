@@ -1,27 +1,32 @@
 {% extends '../home/base.html' %}
 {% load static %}
-    {% block static %}
+
+{% block static %}
     <link rel="stylesheet" href="{% static 'post/blog/css/style.css' %}">
-    {% endblock %}
-    {% block title %}
+{% endblock %}
+
+{% block title %}
     مجله موزیک لند
-    {% endblock %}
+{% endblock %}
 
 
 {% block content %}
     {% for post in posts %}
-
         <div class="post-box">
-        <div class="post" dir="rtl">
-            
-                <img width="100%" src="{{ post.img.url }}" alt="Post image" class="post-image">
+            <div class="post" dir="rtl">
+
+                <a href='{{post.pk}}'>
+                    <img width="100%"  src="{{ post.img.url }}" alt="{{ post.alt }}" class="post-image">
+                </a>
+
                 <br>
+
+                <a href='{{post.pk}}' class="post-title" >
+                    {{ post.title }}
+                </a>
                 
-            <a href='{{post.pk}}' class="post-title" >
-                {{ post.title }}
-            </a>
-        </div></div>
-    
-<br><br><br><br><br><br>
-{% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+
 {% endblock %}

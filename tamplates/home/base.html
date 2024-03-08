@@ -1,12 +1,17 @@
 
 {% load static %}
 <!DOCTYPE html  >
-<html lang="fa" data-theme="dark" >
+<html lang="fa" >
     <head>
         <title>
         {% block title %}
         {% endblock %}
         </title>
+        
+		<!-- Loading third party fonts -->
+		<link href="{% static 'home/css/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="{% static 'home/css/css/style.css'%}">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <link href="{% static 'home/css/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
 <!-- Loading main css file -->
@@ -20,26 +25,31 @@
         {% block style %}
         {% endblock %}
         <style>
+            
+            
             a{
                 text-decoration: none;
             }
-            .t{
-                padding-inline-start: 30px;
+            .alert{
+                margin-top: 1pc;
+                margin-inline: 1pc;
+            }
+            
 
+
+        
+            .btn-close-message{
+                position:  absolute;
+                left: 20px;
+                top: 30%;
+                background: none;
+                border: none;
+                direction: ltr;
+                transition: .4s;
+                border-radius: 5px;
             }
-            .message{
-                background-color: rgba(0, 0, 255, 0.336);
-                color: #000;
-                margin-bottom: 50px;
-                margin-top: 10px;
-                margin-inline: 4%;
-                width: 92%;
-                height: 5pc;
-                border-radius: 10px;
-            }
-            body{
-                background-color: #000;
-            }
+           
+            
               .text{
     color: #000;
 
@@ -56,20 +66,24 @@
     </head>
     <body>
         {% include 'home/heder.html' %}
-        {% if messages %}
-
-
-    {% for msg in messages %}
-        <div class="alert alert-{{msg.tags}}">
-            <p class="t" >
-            {{msg}}
-        </p>
-        </div>
-    {% endfor %}
-
-{% endif %}
-
      
+        {% if messages %}
+            {% for msg in messages %}
+                <div id="msg_box" class="alert alert-{{msg.tags}}">
+                    
+                    <p class="t" >
+                        {{ msg }}
+                    </p>
+                    <button onclick="close_message()" class="btn-close-message" >✖️</button>
+                </div>
+            {% endfor %}
+        {% endif %}
+        <script>
+            var x = document.getElementById("msg_box");
+            function close_message() {
+            x.style.display = "none";
+        }
+        </script>
         <div dir='rtl' class="content" >
         {% block content %}
         {% endblock %}

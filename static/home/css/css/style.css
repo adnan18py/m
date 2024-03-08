@@ -340,7 +340,7 @@ body {
 
 /* line 11, sass/libs/_component.scss */
 .button:hover {
-    background-color: rgb(180, 42, 0);
+    background-color: #fd805a;
 }
 
 /* line 15, sass/libs/_component.scss */
@@ -361,7 +361,7 @@ body {
 
 /* line 24, sass/libs/_component.scss */
 .button.secondary:hover {
-    background-color: #595858;
+    background-color: #9e9e9e;
 }
 
 /* line 29, sass/libs/_component.scss */
@@ -733,8 +733,10 @@ body {
 
     /* line 35, sass/libs/bootstrap-grid/_mixins.scss */
     .col-sm-4 {
-        width: 33.33333333333333333333333333333333333333333333333333333333333333333333333333333333333333%;
-    }/* line 35, sass/libs/bootstrap-grid/_mixins.scss */
+        width: 33.33333%;
+    }
+
+    /* line 35, sass/libs/bootstrap-grid/_mixins.scss */
     .col-sm-5 {
         width: 41.66667%;
     }
@@ -1838,6 +1840,7 @@ body {
     margin: 35px 0 20px;
     color: inherit;
     text-decoration: none;
+
 }
 
 /* line 21, sass/layout/_header.scss */

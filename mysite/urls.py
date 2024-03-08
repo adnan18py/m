@@ -24,11 +24,12 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls,name='admin_url'),
+    path('admin/', admin.site.urls),
     path('',home,name='home_url'),
     path('login/',user_login,name='login_url'),
     path('blog/', include('post.urls')),
     path("profile/",include('accounts.urls')),
+       path('singup',RegisterUser , name='s')
     
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

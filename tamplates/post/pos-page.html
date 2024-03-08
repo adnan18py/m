@@ -8,10 +8,7 @@
 
     {% block style %}
     <style>
-        body{
-            background-color: rgb(255, 255, 255);
-            
-        }
+     
         p{
             font-size: 120%;
             color:rgb(0, 0, 0);
@@ -22,9 +19,15 @@
             padding-inline: 20%;
             
         }
-        @media (max-width: 1000px){
+        @media (max-width: 800px){
             .box-post{
                 padding-inline: 3%;
+                    
+
+            }
+            .h1{
+                
+                font-size: 23px;
             }
         }
 
@@ -46,7 +49,8 @@
                 border-radius: 10px;
                 
 
-    }    
+    }
+
     </style>
     {% endblock %}
 
@@ -58,14 +62,14 @@
 
     
     {% block content %}
-    <h1>{{post.title}}</h1>
+    <h1 class="h1" >{{post.title}}</h1>
     <br>
  
     <div class="box-post" dir="rtl">
         
         
         <a href="{{ post.img.url }}">
-        <img width="100%" src="{{ post.img.url }}" alt="عدنان" class="post-image">
+        <img width="100%"  src="{{ post.img.url }}" alt="{{ post.alt }}" class="post-image">
         </a>
         
         <p class="txt" >

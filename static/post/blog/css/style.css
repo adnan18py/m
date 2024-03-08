@@ -22,8 +22,8 @@ body{
 .post-box{
             
     padding-inline: 20%;
-    padding-top: 1%;
-    padding-bottom: 1%;
+    padding-top: 4pc;
+    padding-bottom: 3pc;
 }
 .post{
     background-color: #353535;
@@ -43,9 +43,10 @@ border-radius: 10px;
 padding-bottom: 2pc;
 }
 
-@media (max-width: 1000px){
+@media (max-width: 720px){
     .post-box{
-        padding-inline: 10%;
+        padding-inline: 4%;
+        font-size: 15px;
     }
 }
 
@@ -60,5 +61,5 @@ padding-bottom: 2pc;
 
 
 .post-title:hover{
-    color: #009dff;
+    color: #fd5927;
 }

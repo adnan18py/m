@@ -9,7 +9,9 @@ class Post(models.Model):
     text = models.TextField(null=True,verbose_name='متن')
     writer = models.CharField(max_length=30,verbose_name='نویسنده')
     img = models.ImageField(null=True,upload_to='images',verbose_name='عکس')
+    alt=models.CharField(max_length=100,verbose_name='موضوع تصویر',null=True)
     crated_time = models.DateTimeField(null=True,auto_now_add=True)
+    
     tags=TaggableManager()
     
     
