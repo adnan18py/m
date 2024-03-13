@@ -1,11 +1,13 @@
 
-from django.urls import path
+from django.urls import path,re_path
 
 from .views import *
 
 
 
+
 urlpatterns = [
     path('',blog,name='blog_url'),
-    path('<int:pk>',post)
+    path('<slug:pslug>/',post_detail,name='post_detail'),
+    
 ]

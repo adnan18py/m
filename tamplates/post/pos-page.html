@@ -8,7 +8,13 @@
 
     {% block style %}
     <style>
-     
+        .code-box{
+            background-color: rgba(255, 119, 0, 0.575);
+            padding-inline: 20px;
+            color: #000;
+            border: #000 solid 1px;
+            border-radius: 20px;
+        }
         p{
             font-size: 120%;
             color:rgb(0, 0, 0);
@@ -50,7 +56,9 @@
                 
 
     }
-
+    .code-box{
+        direction: ltr;
+    }
     </style>
     {% endblock %}
 
@@ -64,7 +72,7 @@
     {% block content %}
     <h1 class="h1" >{{post.title}}</h1>
     <br>
- 
+
     <div class="box-post" dir="rtl">
         
         
@@ -73,9 +81,13 @@
         </a>
         
         <p class="txt" >
-            {{ post.text|linebreaks }}
+            {{ post.text|safe|linebreaks }}
+
         </p>
     </div>
+ 
+   
+
 
     <br>
     <h4>نویسنده: {{post.writer}}</h4>
@@ -84,6 +96,7 @@
         <a style="color: #00000094;" href="">{{ tags }}</a>
         {% if not forloop.last %}, {% endif %}
     {% endfor %}
+    
     <br>
     <br>
     
@@ -91,9 +104,14 @@
 
     <ul>
     
-   
+        {% if comment.count == 0 %}
+        <p>
+        هیچ نظری وجود ندارد,
+              اولین نفری باشید که نظر میدهید
+        </p>
+        {% else %}
         {% for c in comment %}
-
+        
         <li class='li-comment'>
             <div>
                 
@@ -109,9 +127,10 @@
         {% endfor %}
     
     </ul>
+    {% endif %} 
     {% if request.user.is_authenticated %}
         <p>
-            یک نظر بنویسید
+            یک نظر بنویسید:
         </p>
         
         <br>
@@ -122,6 +141,7 @@
             <input class="btn btn-primary mb-2" type="submit" value="ثبت نظر">
         </form>
     {% else %}
+
     <p>
         برای نظر دادن ابتدا باید وارد حساب کاربری خود شوید
     </p>
@@ -129,7 +149,9 @@
     ورود به حساب کاربری
     </a>
 {% endif %}
-    
 
+{% for pos in rel %}
+{{ pos.title }}
+{% endfor %}
 
     {% endblock %}

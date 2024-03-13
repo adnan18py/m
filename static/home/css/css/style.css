@@ -21,6 +21,17 @@ summary {
     display: block;
 }
 
+
+
+
+
+.name{
+    font-size: 30px;
+    color: #b02900;
+}
+
+
+
 /* line 61, sass/libs/_normalize.scss */
 audio,
 canvas,

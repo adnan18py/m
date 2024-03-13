@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block title %}
-    مجله موزیک لند
+    مجله دنیای سبز
 {% endblock %}
 
 
@@ -15,13 +15,13 @@
         <div class="post-box">
             <div class="post" dir="rtl">
 
-                <a href='{{post.pk}}'>
+                <a href='{{ post.slug }}'>
                     <img width="100%"  src="{{ post.img.url }}" alt="{{ post.alt }}" class="post-image">
                 </a>
 
                 <br>
 
-                <a href='{{post.pk}}' class="post-title" >
+                <a href='{{ post.slug }}' class="post-title" >
                     {{ post.title }}
                 </a>
                 

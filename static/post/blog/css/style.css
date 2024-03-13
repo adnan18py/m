@@ -26,6 +26,7 @@ body{
     padding-bottom: 3pc;
 }
 .post{
+    
     background-color: #353535;
     border: solid #000;
     padding-bottom: 4%;
@@ -39,9 +40,25 @@ border-radius: 10px;
 
 
 .post-image{
+    position: relative;
+    transition: transform 0.3s ease;
 border-radius: 10px;
 padding-bottom: 2pc;
+
 }
+
+
+
+
+
+
+.post-image:hover {
+    transform: scale(1.1); /* زوم کردن تصویر به 110% از اندازه اصلی */
+}
+
+
+
+
 
 @media (max-width: 720px){
     .post-box{

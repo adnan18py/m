@@ -23,13 +23,28 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
+
+
+from django.contrib.sitemaps.views import sitemap
+from post.sitemaps import MyModelSitemap
+
+sitemaps = {
+    'mymodel': MyModelSitemap,
+}
+
+
+
+
+
 urlpatterns = [
+     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('admin/', admin.site.urls),
     path('',home,name='home_url'),
     path('login/',user_login,name='login_url'),
     path('blog/', include('post.urls')),
     path("profile/",include('accounts.urls')),
-       path('singup',RegisterUser , name='s')
+    path('singup',RegisterUser , name='s'),
+    path('products/',include('products.urls'))
     
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

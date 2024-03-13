@@ -1,0 +1,58 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+
+{% block static %}
+<link type="text/css" href="{% static 'products/css/main.css' %}" rel="stylesheet" />
+{% endblock %}
+
+
+
+{% block style %}
+    <style>
+        .cap{
+            
+            color: #989393 ;
+            position:relative;
+            padding-top: 10px;
+            right: 15px;
+            
+            
+        }
+        .product-box{
+            padding-inline: 3pc;
+        }
+
+
+
+        .post-title{
+            font-size: 2rem;
+        }
+
+    </style>
+{% endblock %}
+
+
+{% block content %}
+
+    {% for product in products %}
+        <div class="post-box">
+            <div class="post" dir="rtl">
+
+                <a href='{{ product.slug }}'>
+                    <img width="100%"  src="{{ product.img.url }}" alt="{{ product.alt }}" class="post-image">
+                </a>
+
+                
+
+                <a href='{{ product.slug }}' class="post-title" >
+                    {{ product.title }}
+                </a>
+                <p class="cap" >
+                    {{ product.cap }}
+                </p>
+            </div>
+        </div>
+    {% endfor %}
+    
+{% endblock %}
