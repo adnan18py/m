@@ -1,7 +1,7 @@
 from django.db import models
 from taggit.managers import TaggableManager
 from django.utils.text import slugify
-from products.models import *
+
 from django.urls import reverse
 
 
@@ -16,7 +16,7 @@ class Post(models.Model):
     slug = models.SlugField(null=True,max_length=50, allow_unicode=True,verbose_name='آدرس  پست',unique=True)
     tags=TaggableManager()
     related_posts = models.ManyToManyField('self', blank=True,verbose_name='پست های مشابه')
-    # l=models.ManyToManyField(Products)
+
     
     def save(self, *args, **kwargs):
         self.slug = slugify(self.slug)
@@ -33,6 +33,3 @@ class Comment(models.Model):
     text=models.TextField(verbose_name='متن کامنت')
 
 
-class Image(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='images')

@@ -9,13 +9,16 @@ from taggit.models import Tag
 
 
 def products_page_view(request,slug):
-    product=Products.objects.get(slug=slug)
+    product=Product.objects.get(slug=slug)
     images=Image.objects.filter(model=product)
-    post = get_object_or_404(Products, slug=slug)
-    related_posts = post.related_products.all()
+    products = get_object_or_404(Product, slug=slug)
+    
+    related_products = products.related_products.all()
+    related_posts= products.related_posts.all()
     context={'product':product,
                  'images':images,
-                 'rel':related_posts,
+                 'rel':related_products,
+                 'rel_post':related_posts
                 
                  
                  }
@@ -25,7 +28,7 @@ def products_page_view(request,slug):
 
 
 def products_view(request,tag_slug=None):
-    products=Products.objects.all()
+    products=Product.objects.all()
 
     if tag_slug:
         tag=Tag.objects.get(slug=tag_slug)

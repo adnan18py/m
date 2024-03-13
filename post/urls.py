@@ -8,6 +8,6 @@ from .views import *
 
 urlpatterns = [
     path('',blog,name='blog_url'),
-    path('<slug:pslug>/',post_detail,name='post_detail'),
+    path('<slug:slug>/',post,name='post_detail'),
     
 ]

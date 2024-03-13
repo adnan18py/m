@@ -1,11 +1,7 @@
 /* CSS Document */
 @charset "UTF-8";
 
-@font-face {
-  font-family: 'Vazir';
-  src: url('../fonts/Vazir.eot');
-  src: local('../fonts/Vazir'), url('../fonts/Vazir.woff') format('woff'), url('../fonts/Vazir.ttf') format('truetype');
-}
+
 
 .container {
   margin: auto;
@@ -548,17 +544,7 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Vazir', sans-serif;
-  font-size: 1.125rem;
-  line-height: 1.5;
-  margin: 0;
-  padding: 0;
-  color: #888;
-  background: #fff;
-  text-rendering: optimizeLegibility;
-  direction: rtl;
-}
+
 
 ul {
   padding: 0;
@@ -624,9 +610,7 @@ nav li {
   margin: 0;
 }
 
-button {
-  font-family: 'Vazir';
-}
+
 
 .flex-nav ul {
   position: absolute;

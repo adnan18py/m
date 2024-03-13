@@ -1,5 +1,6 @@
         /* استایل دکمه */
         .logout-btn {
+            
             position: relative;
             display: inline-block;
             width: 120px;
@@ -20,6 +21,7 @@
             background:rgb(180, 42, 0);
             opacity: 1;
             transform: translateY(-5px);
+            
         }
         /* استایل متن دکمه */
         .logout-btn span {
@@ -32,10 +34,11 @@
             transition: all 0.1s ease-in-out;
             transition-delay: 0.2s;
             z-index: 10;
+            
         }
         .span:hover{
             background:rgb(180, 42, 0);
-
+            
         }
         .logout-btn span:nth-child(1) {
             left: 0;

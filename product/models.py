@@ -6,7 +6,7 @@ from post.models import *
 
 
 
-class Products(models.Model):
+class Product(models.Model):
     title = models.CharField(max_length=100,verbose_name='نام محصول')
     cap = models.TextField(null=True,verbose_name='کپشن')
     text = models.TextField(null=True,verbose_name='توضیحات')
@@ -15,7 +15,7 @@ class Products(models.Model):
     alt=models.CharField(max_length=100,verbose_name='موضوع تصویر',null=True)
     
     related_products = models.ManyToManyField('self', blank=True)
-    # k = models.ManyToManyRel(Post)
+    related_posts = models.ManyToManyField(Post)
     slug = models.SlugField(max_length=50, allow_unicode=True,verbose_name='آدرس  پست',unique=True,null=True)
     tags=TaggableManager()
     off=models.BooleanField(default=False)
@@ -30,12 +30,12 @@ class Products(models.Model):
 
 class Comment(models.Model):
     name=models.CharField(max_length=100,null=True,verbose_name='نام کاربری')
-    model=models.ForeignKey(Products, on_delete=models.CASCADE)
+    model=models.ForeignKey(Product, on_delete=models.CASCADE)
     text=models.TextField(verbose_name='متن کامنت')
 
 
 class Image(models.Model):
-    model = models.ForeignKey(Products, on_delete=models.CASCADE)
+    model = models.ForeignKey(Product, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='images')
 
 

@@ -44,7 +44,7 @@ border-radius: 10px;
     transition: transform 0.3s ease;
 border-radius: 10px;
 padding-bottom: 2pc;
-
+    
 }
 
 
@@ -53,7 +53,10 @@ padding-bottom: 2pc;
 
 
 .post-image:hover {
-    transform: scale(1.1); /* زوم کردن تصویر به 110% از اندازه اصلی */
+    transform: scale(1.05); 
+    height: auto;
+    -o-object-fit: cover;
+    object-fit: cover;
 }
 
 

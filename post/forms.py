@@ -3,7 +3,9 @@ from django import forms
 
 
 class CommentForm(forms.Form):
-    text=forms.CharField(label='متن',widget=forms.Textarea())
+    attrs={'class':'comment_input'}
+    text=forms.CharField(label='',widget=forms.Textarea(attrs=attrs))
+    
 
 
 

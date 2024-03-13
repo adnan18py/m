@@ -44,7 +44,7 @@ urlpatterns = [
     path('blog/', include('post.urls')),
     path("profile/",include('accounts.urls')),
     path('singup',RegisterUser , name='s'),
-    path('products/',include('products.urls'))
+    path('products/',include('product.urls'))
     
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

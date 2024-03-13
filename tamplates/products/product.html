@@ -75,6 +75,7 @@
 					<img src="{% static 'product/pics/pic6.jfif' %}">
 					<h4>کاکتوس</h4>
 					<p class="price">190 هزار تومان</p>
+					
 				</div> -->
 				
 				{{products.tag}}
@@ -97,6 +98,19 @@
 				<h3>
 					بیشتر بدانید
 				</h3>
+				{% for r in rel_post %}
+				
+				
+					<div class="column-xs-12 column-md-4">
+						<a href="/blog/{{r.slug}}/">
+						<img src='{{ r.img.url }}'>
+						
+						<h4>{{ r.title }}</h4>
+					</a>
+						
+					</div>
+					
+				{% endfor %}
 			</div>
 		</div>
 	</main>

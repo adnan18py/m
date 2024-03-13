@@ -9,17 +9,11 @@ class CommentAdminInline(admin.TabularInline):
 
 
 
-class ImageAdminInline(admin.TabularInline):
-    model=Image
-    
-    extra=0
-
-
 
 class PostAdmin(admin.ModelAdmin):
     list_display=['id','title','writer','crated_time']
     prepopulated_fields = {"slug": ("title", "writer")}
-    inlines=[CommentAdminInline,ImageAdminInline]
+    inlines=[CommentAdminInline]
 
 
 
