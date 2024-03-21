@@ -8,71 +8,9 @@
 
     {% block style %}
     <style>
-        .code-box{
-            background-color: rgba(255, 119, 0, 0.575);
-            padding-inline: 20px;
-            color: #000;
-            border: #000 solid 1px;
-            border-radius: 20px;
-        }
-        p{
-            font-size: 120%;
-            color:rgb(0, 0, 0);
-            padding-bottom: 15px;
-        }
-        .box-post{
-            width: 100%;
-            padding-inline: 20%;
-            
-        }
-        @media (max-width: 800px){
-            .box-post{
-                padding-inline: 3%;
-                    
-
-            }
-            .h1{
-                
-                font-size: 23px;
-            }
-        }
-
-        li{
-    list-style-type:none;
-        }
-
-
-
-        .comment{
-            min-height:10pc;
-            padding-right: 10px;
-            padding-top: 0px;
-        }
-        .comment-text{
-            padding-right: 10px;
-        }
-    .post-image{
-                border-radius: 10px;
-                
-
-    }
-    .code-box{
-        direction: ltr;
-    }
-    .comment_input{
-        padding: 25px;
-        max-width: 100%;
-        min-width: 100%;
-        max-height: 350px;
-        min-height: 350px;
-        border-radius: 25px;
-    }
-    .cibox{
-        padding-inline: 250px;
-    }
+  
     </style>
     {% endblock %}
-
 
 
     {% block title %}
@@ -83,7 +21,7 @@
     {% block content %}
     <h1 class="h1" >{{post.title}}</h1>
     <br>
-    
+
     <div class="box-post" dir="rtl">
         
         
@@ -101,40 +39,90 @@
 
 
     <br>
+
     <h4>نویسنده: {{post.writer}}</h4>
-    <p>برچسب ها:</p>
+    
+    <p>
+        برچسب ها:
+    </p>
+
     {% for tags in post.tags.all %}
-        <a style="color: #00000094;" href="">{{ tags }}</a>
+
+        <a style="color: #00000094;" href="{% url 'blog_url' %}tag/{{tags.slug}}">
+            {{ tags }}
+        </a>
+
         {% if not forloop.last %}, {% endif %}
     {% endfor %}
     
     <br>
     <br>
     
+    
         
-
+{% if comment %}
     <ul>
     
    
-        {% for c in comment %}
+        {% for i in comment %}
         
-        <li class='li-comment'>
+        <li class='lir'>
             <div>
                 
-                {{c.name}}
+                {{i.name}}
                 <div class="comment-box">
+                    
                     <div  class='comment'>
                         
-                        <p class="comment-text" >{{c.text|linebreaks}}</p>
+                        <p class="comment-text" >{{i.text|linebreaks}}</p>
+                        
                     </div>
+
+                    <button class="btn_rep" onclick="n()" class="myButton" >
+
+                        <div class="text_btn">مشاهده پاسخ ها</div><div class="l" class="fl">↓</div>
+
+                    </button>
+                   
+                    <ul>
+                        
+
+
+
+                    {% for i in i.recomment.all %}
+                        <li class="lir" >
+                            {{i.name}}
+                            <div class="rep_box comment" class="h">
+                            
+
+                                <p>
+                                    {{i.text|safe|linebreaks}}
+
+                                </p>
+                                <br>
+                            
+                            </div>
+                        </li>
+                        
+
+                    {% endfor %}
+                </ul>
+                
+                <hr>
                 </div>
             </div>
         </li>
         {% endfor %}
     
     </ul>
-
+    
+    
+{% endif %}
     {% if request.user.is_authenticated %}
+        {% if not comment %}
+            <p>هیچ نظری ثبت نشده اولین نفری باشید که نظر میدهد</p>
+        {% endif %}
+
         <p>
             یک نظر بنویسید:
         </p>
@@ -142,10 +130,15 @@
         <br>
         <form action="" method="post">
             {% csrf_token %}
+            <div class="un">
+                {{form.name}}
+            </div>
             <div class="cibox" >
-            {{form.as_p}}
+                {{form.text}}
+            </div>
+            <div class="btn-box">
+            <input class="commment-sub-btn" type="submit" value="ثبت نظر">
         </div>
-            <input class="btn btn-primary mb-2" type="submit" value="ثبت نظر">
         </form>
     {% else %}
 
@@ -157,9 +150,32 @@
     </a>
 {% endif %}
 <br>
-{% for pos in rel %}
-{{ pos.title }}
-<br>
-{% endfor %}
+<hr>
 
-    {% endblock %}
+<div class="rel-posts">
+    {% for post in rel %}
+        
+        <div class="rel-post-box">
+            <a href="{% url 'blog_url' %}{{post.slug}}">
+                
+                <div class="rel-post-img-box">
+                    <img src="{{post.img.url}}" alt="{{post.alt}}" class="rel-post-img" >
+                </div>
+
+                <hr>
+                <p class="rel-post-title" >{{ post.title }}</p>
+            </a>
+        </div>
+    
+    {% endfor %}
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,24 +1,21 @@
 {% extends 'home/base.html' %}
 {% load static %}
+{% load humanize %}
 
-
-
+{% block static %}
+<link type="text/css" href="{% static 'product/css/style.css' %}" rel="stylesheet" />
+{% endblock %}
 
 
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
 
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link type="text/css" href="{% static 'product/css/style.css' %}" rel="stylesheet" />
+
 
 	
-	<main>
+	<!-- <main> -->
 		<div class="container">
-			<!-- <div class="grid second-nav">
+			<div class="grid second-nav">
 				<div class="column-xs-12">
 					<nav>
 						<ol class="breadcrumb-list">
@@ -28,7 +25,7 @@
 						</ol>
 					</nav>
 				</div>
-			</div> -->
+			</div>
 			<div class="grid product">
 				<div class="column-xs-12 column-md-7">
 					<div class="product-gallery">
@@ -47,47 +44,33 @@
 				</div>
 				<div class="column-xs-12 column-md-5">
 					<h1>{{ product.title }}</h1>
-					<h2>{{ product.price }} تومان</h2>
-					<div class="description">
-						<p>
-							{{ product.text|linebreaks }}
-						</p>
-					</div>
+					<h2>{{ product.price|intcomma:False  }} تومان</h2>
+
 					<button class="add-to-cart">خرید محصول</button>
 				</div>
+
 			</div>
+			<p style="color: black;" >
+				{{ product.text|linebreaks }}
+			</p>
 			<div class="grid related-products">
 				<div class="column-xs-12">
 					<h3>این محصولات نیز پیشنهاد می شوند</h3>
 				</div>
-				{{ l.title }}
-				<!-- <div class="column-xs-12 column-md-4">
-					<img src="{% static 'product/pics/pic4.jfif' %}">
-					<h4>ساکلنت</h4>
-					<p class="price">190 هزار تومان</p>
-				</div>
-				<div class="column-xs-12 column-md-4">
-					<img src="{% static 'product/pics/pic5.jfif' %}">
-					<h4>تراریوم</h4>
-					<p class="price">190 هزار تومان</p>
-				</div>
-				<div class="column-xs-12 column-md-4">
-					<img src="{% static 'product/pics/pic6.jfif' %}">
-					<h4>کاکتوس</h4>
-					<p class="price">190 هزار تومان</p>
-					
-				</div> -->
+				
+				
 				
 				{{products.tag}}
 				{% for r in rel %}
 				
 				
 					<div class="column-xs-12 column-md-4">
-						<img src='{{ r.img.url }}'>
 						<a href="/products/{{ r.slug }}/">
+						<img src='{{ r.img.url }}'>
+						
 						<h4>{{ r.title }}</h4>
 					</a>
-						<p class="price">{{ r.price }}تومان</p>
+						<p class="price">{{ r.price|intcomma:False }}تومان</p>
 					</div>
 					
 				{% endfor %}
@@ -113,7 +96,7 @@
 				{% endfor %}
 			</div>
 		</div>
-	</main>
+	<!-- </main> -->
 	
 	<script  src="{% static 'product/js/scripts.js' %}"></script>
 

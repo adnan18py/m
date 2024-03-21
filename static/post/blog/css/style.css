@@ -1,6 +1,4 @@
-body{
-    background-color: rgb(255, 255, 255);
-}
+
 
 
 
@@ -10,26 +8,31 @@ body{
     src: url('../../../home/fonts/iran_sans.ttf');
     }
     
-    
-    
+ 
 
-.post{
-    color: #000;
-}
+
 
 
 
 .post-box{
-            
-    padding-inline: 20%;
+    
+    display: inline-block;
+
+    padding-inline: 50px;
+
     padding-top: 4pc;
     padding-bottom: 3pc;
 }
 .post{
-    
+    width: 400px;
+    height: 350px;
+    min-width: 400px;
+    min-height: 350px;
+    max-width: 400px;
+    max-height: 350px;
     background-color: #353535;
     border: solid #000;
-    padding-bottom: 4%;
+    padding-bottom: 40px;
     min-height: 200px;
 border-radius: 10px;
 
@@ -41,9 +44,12 @@ border-radius: 10px;
 
 .post-image{
     position: relative;
-    transition: transform 0.3s ease;
-border-radius: 10px;
-padding-bottom: 2pc;
+    border-radius: 10px;
+    min-width: 395px;
+    max-width: 395px;
+    max-height: 300px;
+    min-height: 300px;
+    padding-bottom: 2pc;
     
 }
 
@@ -52,12 +58,7 @@ padding-bottom: 2pc;
 
 
 
-.post-image:hover {
-    transform: scale(1.05); 
-    height: auto;
-    -o-object-fit: cover;
-    object-fit: cover;
-}
+
 
 
 
@@ -68,13 +69,18 @@ padding-bottom: 2pc;
         padding-inline: 4%;
         font-size: 15px;
     }
+    .post_list{
+        display: block;
+    }
 }
 
 
 
 .post-title{
     color: #fff;
+    font-size: 13px;
     padding-inline: 1pc;
+    margin-bottom: 10pc;
     transition: .3s;
     
 }
@@ -83,3 +89,12 @@ padding-bottom: 2pc;
 .post-title:hover{
     color: #fd5927;
 }
+
+
+
+.post_list{
+    
+    align-items: center;
+    
+}
+

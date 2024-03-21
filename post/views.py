@@ -3,16 +3,13 @@ from post.models import *
 from .forms import *
 from django.contrib import messages
 
+from taggit.models import Tag
 
 
 
 
-# def post_detail(request, pslug):
-#     post = get_object_or_404(Post, slug=pslug)
-#     related_posts = post.related_posts.all()
-#     return render(request, 'post/pos-page.html', {'post': post, )
 def blog(request):
-     # request.user
+     
      posts = Post.objects.all()
      
      context={'posts':posts}
@@ -24,28 +21,42 @@ def post(request, slug):
      post = get_object_or_404(Post, slug=slug)
      related_posts = post.related_posts.all()
      user=request.user
-     if request.method == 'POST':
+     if request.method == 'POST':     
           form = CommentForm(request.POST)
           if form.is_valid():
                posts=Post.objects.get(slug=slug)
                cd = form.cleaned_data
-               Comment.objects.create(text=cd['text2'],post=posts,name=user)
+               Comment.objects.create(text=cd['text'],post=posts,name=cd['name'])
                return redirect(f'/blog/{slug}')
-               
+        
      else:
           form = CommentForm()
 
 
-
-     posts=Post.objects.get(slug=slug)
-     comments=Comment.objects.filter(post=posts,)
+     posts = Post.objects.filter(slug=slug)[:1]
+     comments = Comment.objects.filter(post__in=posts)
+     r = Reply.objects.filter(comment__in=comments)
+  
      
-     context={'post':posts,'comment':comments,'form':form,'rel': related_posts}
+     
+     posts1=Post.objects.get(slug=slug)
+
+     context={'post':posts1,'comment':comments,'form':form,'rel': related_posts,'l':r}
      return render(request,'post/pos-page.html',context=context)
 
 
 
 
+def blog_view(request,tag_slug=None):
+    posts=Post.objects.all()
+
+    if tag_slug:
+        tag=Tag.objects.get(slug=tag_slug)
+        posts=posts.filter(tags__in=[tag])
+
+
+    context={'posts':posts,'tag':tag}
+    return render(request,"post/blog.html",context)
 
      
      

@@ -32,4 +32,21 @@ class Comment(models.Model):
     post=models.ForeignKey(Post, on_delete=models.CASCADE)
     text=models.TextField(verbose_name='متن کامنت')
 
+class Reply(models.Model):
+    name=models.CharField(
+        max_length=100,
+        null=True,
+        verbose_name='نام کاربری'
+        )
+    
 
+    comment=models.ForeignKey(
+            Comment,
+            on_delete=models.CASCADE,
+            related_name='recomment'
+                        )
+    
+
+    text=models.TextField(
+        verbose_name='متن پاسخ'
+        )

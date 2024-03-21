@@ -3,6 +3,27 @@
 
 {% block static %}
     <link rel="stylesheet" href="{% static 'post/blog/css/style.css' %}">
+    <style>
+        @font-face {
+            font-family: font;
+            src: url("{% static 'home/fonts/iran_sans.ttf' %}");
+        }
+        a{
+            font-family: font;
+        }
+        p{
+            font-family: font;
+        }
+        small{
+            font-family: font;
+        }
+        ul{
+            font-family: font;
+        }
+        input{
+            font-family: font;
+        }
+    </style>
 {% endblock %}
 
 {% block title %}
@@ -10,23 +31,30 @@
 {% endblock %}
 
 
+
 {% block content %}
+    {% if tag %}
+    <p>
+         پست ها بر اساس تگ {{tag.name}} فیلتر شده اند   
+    </p>
+    {% endif %}
+    <div class="post_list">
     {% for post in posts %}
         <div class="post-box">
             <div class="post" dir="rtl">
-
-                <a href='{{ post.slug }}'>
-                    <img width="100%"  src="{{ post.img.url }}" alt="{{ post.alt }}" class="post-image">
+            
+                <a href="{% url 'blog_url' %}{{ post.slug }}">
+                    <img width="100%"  src="{{post.img.url}}" alt="{{ post.alt }}" class="post-image">
                 </a>
+            
+                
 
-                <br>
-
-                <a href='{{ post.slug }}' class="post-title" >
+                <a href="{% url 'blog_url' %}{{ post.slug }}" class="post-title" >
                     {{ post.title }}
                 </a>
                 
             </div>
         </div>
     {% endfor %}
-
+</div>
 {% endblock %}

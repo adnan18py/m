@@ -8,6 +8,11 @@ from taggit.models import Tag
 
 
 
+    
+
+
+
+
 def products_page_view(request,slug):
     product=Product.objects.get(slug=slug)
     images=Image.objects.filter(model=product)
@@ -18,8 +23,8 @@ def products_page_view(request,slug):
     context={'product':product,
                  'images':images,
                  'rel':related_products,
-                 'rel_post':related_posts
-                
+                 'rel_post':related_posts,
+
                  
                  }
     return render(request,'products\product.html',context)

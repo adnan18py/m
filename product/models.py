@@ -19,6 +19,7 @@ class Product(models.Model):
     slug = models.SlugField(max_length=50, allow_unicode=True,verbose_name='آدرس  پست',unique=True,null=True)
     tags=TaggableManager()
     off=models.BooleanField(default=False)
+    off_price=models.CharField(max_length=2,null=True,)
 
 
 

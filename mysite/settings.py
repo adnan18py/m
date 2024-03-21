@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'home',
     'post',
     'accounts',
-    
+     'django.contrib.humanize',
      'django.contrib.sitemaps', 
      'product',
 ]

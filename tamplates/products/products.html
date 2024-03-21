@@ -10,49 +10,31 @@
 
 {% block style %}
     <style>
-        .cap{
-            
-            color: #989393 ;
-            position:relative;
-            padding-top: 10px;
-            right: 15px;
-            
-            
-        }
-        .product-box{
-            padding-inline: 3pc;
-        }
-
-
-
-        .post-title{
-            font-size: 2rem;
-        }
 
     </style>
 {% endblock %}
 
 
 {% block content %}
-
+    <div class="product_list">
     {% for product in products %}
         <div class="post-box">
             <div class="post" dir="rtl">
 
-                <a href='{{ product.slug }}'>
+                <a href='/products/{{ product.slug }}/'>
                     <img width="100%"  src="{{ product.img.url }}" alt="{{ product.alt }}" class="post-image">
                 </a>
 
                 
 
-                <a href='{{ product.slug }}' class="post-title" >
+                <a href='/products/{{ product.slug }}/' class="post-title" >
                     {{ product.title }}
                 </a>
                 <p class="cap" >
-                    {{ product.cap }}
+                    {{ product.cap|linebreaks }}
                 </p>
             </div>
         </div>
     {% endfor %}
-    
+</div>
 {% endblock %}

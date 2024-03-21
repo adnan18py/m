@@ -1,4 +1,4 @@
-body{
+/* body{
     background-color: rgb(255, 255, 255);
 }
 
@@ -13,9 +13,7 @@ body{
     
     
 
-.post{
-    color: #000;
-}
+
 
 
 
@@ -62,4 +60,136 @@ padding-bottom: 2pc;
 
 .post-title:hover{
     color: #fd5927;
+}
+
+
+.post_list{
+    
+    align-items: center;
+    
+} */
+
+
+
+
+
+
+
+
+
+
+
+@font-face {
+
+    font-family: 'font-p';
+    src: url('../../../home/fonts/iran_sans.ttf');
+    }
+    
+ 
+
+
+
+
+.post-box{
+    
+    display: inline-block;
+
+    padding-inline: 50px;
+
+    padding-top: 4pc;
+    padding-bottom: 3pc;
+}
+
+.post{
+    width: 400px;
+    height: auto;
+    min-width: 400px;
+    min-height: 350px;
+    max-width: 400px;
+    /* max-height: 400px; */
+    background-color: #353535;
+    border: solid #000;
+    
+    min-height: 200px;
+border-radius: 10px;
+
+}
+
+
+
+
+
+.post-image{
+    position: relative;
+    border-radius: 10px;
+    min-width: 395px;
+    max-width: 395px;
+    max-height: 300px;
+    min-height: 300px;
+    padding-bottom:1pc;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 720px){
+    .post-box{
+        padding-inline: 4%;
+        font-size: 15px;
+    }
+    .post_list{
+        display: block;
+    }
+}
+
+
+
+.post-title{
+    color: #fff;
+    font-size: 13px;
+    padding-inline: 1pc;
+    margin-bottom: 10pc;
+    transition: .3s;
+    
+}
+
+
+.post-title:hover{
+    color: #fd5927;
+}
+
+
+
+.post_list{
+    
+    align-items: center;
+    
+}
+
+.cap{
+            
+    color: #fffdfd ;
+    padding-inline: 100px;
+    padding-top: 10px;
+    right: 15px;
+    
+    
+}
+.product-box{
+    padding-inline: 3pc;
+}
+
+
+
+.post-title{
+    font-size: 2rem;
 }
