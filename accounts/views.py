@@ -34,13 +34,16 @@ def user_login(request):
                     
                     
                     if r is not None:
-                         login(request,r)
-                         v=f'''
-با موفقیت وارد حساب کاربری شدید
-خوش آمدید{request.user.first_name}😊
-'''
-                         messages.success(request,v,'success')
-                         return redirect('profile_url')
+                         
+                              login(request,r)
+                              v=f'''
+     با موفقیت وارد حساب کاربری شدید
+     خوش آمدید{request.user.first_name}😊
+     '''
+                              messages.success(request,v,'success')
+                              return redirect('profile_url')
+                         
+
                     elif cd['password'] != '' :
                          if cd['username'] != '':
                               messages.error(request,'رمز عبور یا نام کاربری اشتباه است','warning')
@@ -68,14 +71,18 @@ def RegisterUser(request):
     if request.method == 'POST':
         form = RegisteritonForm(request.POST)
         if form.is_valid():
-               cd = form.cleaned_data
-               user=User.objects.create_user(cd['username'],cd['email'],cd['password'])
-               user.first_name=cd['frist_name']
-               user.last_name=cd['last_name']
-               user.save()
-               r=authenticate(request,username=cd['username'],password=cd['password'])
-               login(request,r)
-               return redirect('profile_url')
+               try:
+                    cd = form.cleaned_data
+                    user=User.objects.create_user(cd['username'],cd['email'],cd['password'])
+                    user.first_name=cd['frist_name']
+                    user.last_name=cd['last_name']
+                    user.save()
+                    r=authenticate(request,username=cd['username'],password=cd['password'])
+                    login(request,r)
+                    return redirect('profile_url')
+               except:
+                         msg='نام کاربری یا ادرس ایمیل قبلا استفاده شده'
+                         messages.success(request,msg,'danger')
     else:
         form = RegisteritonForm()
     if request.user.is_authenticated:
